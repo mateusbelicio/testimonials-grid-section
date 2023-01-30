@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains all colors declarations
+// -----------------------------------------------------------------------------
+
+@use '../abstracts/' as *;
+
+:root {
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+}
+
+body {
+  background-color: clr('neutral', 300);
+  color: clr('neutral');
+}
