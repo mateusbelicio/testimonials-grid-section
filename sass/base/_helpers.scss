@@ -28,12 +28,23 @@
 
 .grid-container {
   $num-grid: 8;
+  $gap: 1.5rem;
+  $max: ($max-width - (($num-grid - 1) * $gap)) / $num-grid;
+  @debug $max;
 
   display: grid;
   grid-template-columns:
-    1fr [center-start]
-    repeat($num-grid, [col-start] minmax(0, calc($max-width / $num-grid)) [col-end])
-    [center-end] 1fr;
+    minmax(to-rem(24), 1fr) [center-start]
+    repeat($num-grid, [col-start] minmax(0, $max) [col-end])
+    [center-end] minmax(to-rem(24), 1fr);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
 }
 
 /**

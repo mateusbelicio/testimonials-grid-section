@@ -1,0 +1,21 @@
+{
+  "name": "testimonials-grid-section",
+  "version": "1.0.0",
+  "description": "This is a solution to the Testimonials grid section challenge on Frontend Mentor.",
+  "scripts": {
+    "dev": "sass --watch sass/main.scss:style/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateusbelicio/testimonials-grid-section.git"
+  },
+  "author": "Mateus Belício",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mateusbelicio/testimonials-grid-section/issues"
+  },
+  "homepage": "https://github.com/mateusbelicio/testimonials-grid-section#readme",
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}

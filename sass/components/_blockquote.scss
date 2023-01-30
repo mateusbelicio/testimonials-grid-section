@@ -3,3 +3,76 @@
 // -----------------------------------------------------------------------------
 
 @use '../abstracts/' as *;
+
+.blockquote {
+  --border-color: #{clr('neutral', 200)};
+  --text-color: #{clr('primary')};
+  --main-color: #{clr('neutral', 200)};
+
+  &--colorful {
+    --border-color: #{clr('accent', 300)};
+    --text-color: #{clr('neutral', 200)};
+    --main-color: #{clr('accent')};
+
+    background-image: url(../images/bg-pattern-quotation.svg);
+    background-position: top 0 right minmax-font(24, 80);
+    background-repeat: no-repeat;
+  }
+
+  &--dark {
+    --border-color: #{clr('primary')};
+    --text-color: #{clr('neutral', 200)};
+    --main-color: #{clr('primary')};
+  }
+
+  &--very-dark {
+    --border-color: #{clr('accent')};
+    --text-color: #{clr('neutral', 200)};
+    --main-color: #{clr('primary', 500)};
+  }
+
+  padding: to-rem(24) to-rem(32);
+  border-radius: to-rem(10);
+  background-color: var(--main-color);
+  color: var(--text-color);
+  box-shadow: $shadow;
+
+  display: grid;
+  row-gap: to-rem(12);
+
+  &__heading {
+    align-items: center;
+    gap: to-rem(8);
+    line-height: 1;
+
+    div {
+      gap: to-rem(4);
+    }
+  }
+
+  &__author-img {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    height: to-rem(28);
+  }
+
+  &__author-name {
+    font-weight: 600;
+  }
+
+  &__author-verify {
+    opacity: 50%;
+    font-size: to-rem(11);
+  }
+
+  &__title {
+    line-height: 1.2;
+    font-size: to-rem(20);
+    font-weight: 600;
+  }
+
+  &__text {
+    opacity: 70%;
+  }
+}

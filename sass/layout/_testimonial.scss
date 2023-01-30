@@ -3,3 +3,96 @@
 // -----------------------------------------------------------------------------
 
 @use '../abstracts/' as *;
+
+.testimonial {
+  min-height: 100vh;
+  row-gap: to-rem(24);
+  grid-template-rows:
+    minmax(to-rem(70), 1fr) [center-start]
+    repeat(auto-fit, [row-start] minmax(0, min-content) [row-end])
+    [center-end] minmax(to-rem(70), 1fr);
+
+  & > * {
+    grid-column: center;
+  }
+
+  @for $i from 1 through 5 {
+    &__quote:nth-of-type(#{$i}) {
+      grid-row: row-start $i / span 1;
+      animation: fadeIn 0.8s ease-out calc(0.15s * $i) both;
+    }
+  }
+
+  @include breakpoint('medium') {
+    column-gap: to-rem(24);
+
+    &__quote {
+      --col-span: span 4;
+
+      &:nth-of-type(1) {
+        grid-column: center-start / var(--col-span);
+        grid-row: center-start / span 2;
+      }
+
+      &:nth-of-type(2) {
+        grid-column: col-start 5 / var(--col-span);
+        grid-row: center-start / span 1;
+      }
+
+      &:nth-of-type(3) {
+        grid-column: col-start 5 / var(--col-span);
+        grid-row: row-start 2 / span 1;
+      }
+
+      &:nth-of-type(4) {
+        grid-column: col-start 5 / var(--col-span);
+        grid-row: row-start 3 / span 2;
+      }
+
+      &:nth-of-type(5) {
+        grid-column: center-start / var(--col-span);
+        grid-row: row-start 3 / span 2;
+      }
+    }
+  }
+
+  @include breakpoint('large') {
+    &__quote {
+      --col-span: span 2;
+      --row-span: span 2;
+
+      &--bwidth {
+        --col-span: span 4;
+      }
+
+      &--bheight {
+        --row-span: span 4;
+      }
+
+      &:nth-of-type(1) {
+        grid-column: center-start / var(--col-span);
+        grid-row: center-start / var(--row-span);
+      }
+
+      &:nth-of-type(2) {
+        grid-column: col-start 5 / var(--col-span);
+        grid-row: center-start / var(--row-span);
+      }
+
+      &:nth-of-type(3) {
+        grid-column: center-start / var(--col-span);
+        grid-row: row-start 3 / var(--row-span);
+      }
+
+      &:nth-of-type(4) {
+        grid-column: col-start 3 / var(--col-span);
+        grid-row: row-start 3 / var(--row-span);
+      }
+
+      &:nth-of-type(5) {
+        grid-column: col-start 7 / var(--col-span);
+        grid-row: center-start / var(--row-span);
+      }
+    }
+  }
+}

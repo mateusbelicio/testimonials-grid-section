@@ -5,10 +5,10 @@
 @use '../abstracts/' as *;
 
 body {
-  font-size: minmax-font(13, 16);
+  font-size: to-rem(13);
   font-family: $ff-primary;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 h1,
